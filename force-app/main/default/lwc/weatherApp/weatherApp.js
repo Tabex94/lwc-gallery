@@ -3,33 +3,36 @@ import getWeatherData from '@salesforce/apex/WeatherAppController.getWeatherData
 
 export default class weatherApp extends LightningElement {
 
-    formatedData='';
     @wire(getWeatherData) weatherData;
-
-    /*@wire(getWeatherData) weatherData({ error, data }){
-        if(data){
-            
-            console.log('Weather data:', data);
-            try {
-                this.formatedData = typeof data === 'string' ? JSON.parse(data) : data;
-                console.log('Formatted Weather data:', this.formatedData);
-                } catch(parseError) {
-                    console.error('Error parsing weather data:', parseError);
-                }
-            
-        } else if(error){
-            console.error('Error fetching weather data:', error);
-        }
-    }*/
-
-    //weatherDataObje = this.weatherData.data;
-    
+    weatherDatex;
     get temperature() {
         return this.weatherData.data;
     }
 
-    get isDay(){
-        return this.weatherData.data;
+    get isObject(){
+        return typeof this.weatherData === "object";;
+    }
+
+    get something(){
+        try {
+            //console.log('weatherData:', this.weatherData);
+            console.log('Full weatherData:', this.weatherData); // First check the complete object
+        
+            // If using @wire, the data is in this.weatherData.data (if successful)
+            const rawData = this.weatherData?.data || this.weatherData;
+            
+            // Check if we need to parse (only if it's a string)
+            const parsedData = typeof rawData === 'string' ? JSON.parse(rawData) : rawData;
+            
+            console.log('Parsed weatherData:', parsedData); // Proper object inspection
+            console.log('Temperature:', parsedData?.current?.temperature_2m); // Specific property
+            
+            return parsedData?.current?.temperature_2m || 'Data not available';
+
+        }
+        catch (error) {
+            return 'error occurred';
+        }
     }
 
 }
