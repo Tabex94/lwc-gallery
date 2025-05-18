@@ -7,7 +7,7 @@ export default class weatherApp extends LightningElement {
     parsedWeather=null;//Empty object to store parsed weather data
     message='';
     tempReady=false;
-    messagesBlock=['Is too cold','is too normal','too hot'];
+    messagesBlock=["Brrr, it's freezing!", "It's chilly today!","It's warm today! ","It's hot outside! " ];
     
     /*getTemperatureMsg(temperature) {
     for (const range of weatherApp.temperatureMessages) {
@@ -52,11 +52,15 @@ export default class weatherApp extends LightningElement {
     get welcomeMessage() { 
         if(this.tempReady && this.parsedWeather.current.temperature_2m){
             try{
-                this.message=this.messagesBlock[1];
-                if(this.parsedWeather.current.temperature_2m<20){
-                    this.message=this.messagesBlock[0];
-                }else if(this.parsedWeather.current.temperature_2m>35){
+                this.message=this.messagesBlock[0];
+                if(this.parsedWeather.current.temperature_2m>18){
+                    this.message=this.messagesBlock[1];
+                }
+                if(this.parsedWeather.current.temperature_2m>27){
                     this.message=this.messagesBlock[2];
+                }
+                if(this.parsedWeather.current.temperature_2m>34){
+                    this.message=this.messagesBlock[3];
                 }
                 return this.message; //Message
             }catch (error) {
