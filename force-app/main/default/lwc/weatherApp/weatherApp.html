@@ -1,11 +1,15 @@
 <template>
-    <template if:true={weatherData}>
-        <div class="slds-p-around_medium">
-            <h2 class="">AA {temperature} AA</h2>
-            EE {isObject} EE<br>
-            II {something} II
-            <!--<p>{weatherData.data}</p>-->
-            
-            <!--{weatherObjetct}-->
+    <template if:true={wiredWeather}>
+        <div class="main-card">
+            <div class="card-text">
+                <h2 class="headingMessage">{welcomeMessage}</h2>
+            </div>
+            <div class="card-img"></div>
         </div>
+        <div class="">
+            <p>{rawWeatherData}</p><br>
+            <p>{rawTemperature}</p><br>
+            <p>{welcomeMessage}</p><br>
+        </div>
+    </template>
 </template>
