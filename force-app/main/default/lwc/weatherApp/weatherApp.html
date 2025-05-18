@@ -1,3 +1,7 @@
 <template>
-    
+    <template if:true={weatherData}>
+        <div class="slds-p-around_medium">
+            <h2>la data</h2>
+            <h1 class="slds-text-heading_large">{weatherData.data}</h1>
+        </div>
 </template>
