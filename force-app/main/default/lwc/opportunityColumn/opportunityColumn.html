@@ -1,0 +1,15 @@
+<template>
+  <div
+    class="column"
+    ondragover={handleDragOver}
+    ondrop={handleDrop}
+  >
+    <h2 class="stage-name">{stageName}</h2>
+
+    <template if:true={opportunities}>
+      <template for:each={opportunities} for:item="opp">
+        <c-opportunity-card key={opp.Id} opportunity={opp}></c-opportunity-card>
+      </template>
+    </template>
+  </div>
+</template>

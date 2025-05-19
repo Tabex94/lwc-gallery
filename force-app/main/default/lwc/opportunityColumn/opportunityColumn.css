@@ -1,0 +1,14 @@
+.column {
+  background-color: #f4f6f9;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 8px;
+  min-height: 200px;
+  border: 2px dashed #ddd;
+}
+
+.stage-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
