@@ -7,6 +7,13 @@
   cursor: grab;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+p.name{
+  font-size: 1rem;
+  font-weight: bold;}
+p.amount{
+  font-size: 1.1rem;
+  color: #2a5f0e;
+}
 
 .card:active {
   cursor: grabbing;

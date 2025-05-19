@@ -6,9 +6,16 @@
   min-height: 200px;
   border: 2px dashed #ddd;
 }
+.column.Proposal{
+  background-color: #dee783 !important;
+}
+
+
+
 
 .stage-name {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
+
