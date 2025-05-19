@@ -1,3 +1,20 @@
 <template>
-    
+    <template if:true={wiredWeather}>
+        <div class="main-card">
+            <div class="card-text">
+                <div>
+                    <p class="headingWelcome">Welcome!</p>
+                    <h2 class="headingMessage">{welcomeMessage}</h2></div>
+                <div><h3 class="temperatureLabel">{rawTemperature}°C</h3></div>
+            </div>
+            <div class="card-img">
+                <img src='https://www.pngarts.com/files/1/Clouds-PNG-Download-Image.png'></img>
+            </div>
+        </div>
+        <!--<div class="">
+            <p>{rawWeatherData}</p><br>
+            <p>{rawTemperature}</p><br>
+            <p>{welcomeMessage}</p><br>
+        </div>-->
+    </template>
 </template>

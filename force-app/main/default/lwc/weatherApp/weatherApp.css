@@ -1,0 +1,62 @@
+.main-card{
+    background-image: 
+    url('https://png.pngtree.com/thumb_back/fh260/background/20231028/pngtree-textured-background-showcasing-a-cloudy-day-s-blue-sky-image_13749818.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
+    border-radius: 8px;
+    justify-content: center;
+}
+
+.card-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 10;
+}
+.card-text div{
+    padding: 0 12px;
+}
+.card-img{
+    position: absolute;
+    min-width: 350px;
+    z-index: 0;
+    justify-items: center;
+    
+}
+.card-img img{
+    width: 150px;
+    animation: moveCloud 30s infinite alternate;
+}
+
+@keyframes moveCloud {
+            from {
+                transform: translateX(-20%);
+            }
+            to {
+                transform: translateX(200%); 
+            }
+}
+
+.headingWelcome{
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(14, 13, 13, 0.628);
+    text-shadow: 2px 2px 5px rgba(19, 18, 18, 0.872);
+}
+.headingMessage{
+    font-size: 28px;
+    font-weight: 500;
+    color: rgb(14, 13, 13);
+    text-shadow: 2px 2px 5px rgba(19, 18, 18, 0.872);
+    
+}
+
+.temperatureLabel{
+    font-size: 40px;
+    font-weight: semibold;
+    color: rgba(174, 119, 1, 0.83);
+    text-shadow: 2px 2px 5px rgb(1, 1, 1);
+}
