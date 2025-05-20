@@ -1,14 +1,14 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, track, wire } from 'lwc';
+import getOpenOpportunities from '@salesforce/apex/OpportunityLWCController.getOpenOpportunities';
 
 export default class OpportunityBoard extends LightningElement {
-  @track opportunities = [
-    { Id: '001', Name: 'Deal 1', Amount: 5000, StageName: 'Qualification' },
-    { Id: '002', Name: 'Deal 2', Amount: 8000, StageName: 'Proposal' },
-    { Id: '003', Name: 'Deal 3', Amount: 12000, StageName: 'Closed Won' },
-    { Id: '004', Name: 'Deal 3', Amount: 12000, StageName: 'Qualification' }
-  ];
+  @track opportunities = [];
 
-  stageList = ['Qualification', 'Proposal', 'Closed Won', 'Closed Lost'];
+  // Dynamically extract unique stage names
+  get stageList() {
+    const stages = new Set(this.opportunities.map(opp => opp.StageName));
+    return Array.from(stages);
+  }
 
   get columns() {
     return this.stageList.map(stage => ({
@@ -17,13 +17,20 @@ export default class OpportunityBoard extends LightningElement {
     }));
   }
 
-  handleOpportunityDrop(event) {
-    const { opportunityId, newStage } = event.detail;
+  @wire(getOpenOpportunities)
+  wiredOpps({ error, data }) {
+    if (data) {
+      this.opportunities = data;
+    } else if (error) {
+      console.error('Error fetching opportunities', error);
+    }
+  }
 
-    this.opportunities = this.opportunities.map(opp =>
-      opp.Id === opportunityId ? { ...opp, StageName: newStage } : opp
-    );
+  handleOpportunityDrop(event) {
+    // We ignore this for now, as you said no record updates yet.
+    console.log('Drop detected (not persisted):', event.detail);
   }
 }
+
 
 
