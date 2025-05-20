@@ -6,6 +6,7 @@
   background-color: white;
   cursor: grab;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 240px;
 }
 p.name{
   font-size: 0.9rem;

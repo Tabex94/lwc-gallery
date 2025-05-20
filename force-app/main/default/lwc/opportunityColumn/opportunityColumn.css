@@ -5,6 +5,11 @@
   border-radius: 8px;
   min-height: 200px;
   border: 2px dashed #ddd;
+  min-width: 180px;
+  max-width: 250px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 180px;
 }
 .column.Proposal{
   background-color: #dee783 !important;

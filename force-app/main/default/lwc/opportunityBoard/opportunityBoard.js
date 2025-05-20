@@ -1,5 +1,5 @@
 import { LightningElement, track, wire } from 'lwc';
-import getOpenOpportunities from '@salesforce/apex/OpportunityLWCController.getOpenOpportunities';
+import getMainOpportunities from '@salesforce/apex/OpportunityLWCController.getMainOpportunities';
 
 export default class OpportunityBoard extends LightningElement {
   @track opportunities = [];
@@ -17,7 +17,7 @@ export default class OpportunityBoard extends LightningElement {
     }));
   }
 
-  @wire(getOpenOpportunities)
+  @wire(getMainOpportunities)
   wiredOpps({ error, data }) {
     if (data) {
       this.opportunities = data;
