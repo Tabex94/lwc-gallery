@@ -15,6 +15,7 @@
     flex-direction: row;
     justify-content: space-between;
     z-index: 10;
+    
 }
 .card-text div{
     padding: 0 12px;
@@ -36,7 +37,7 @@
                 transform: translateX(-20%);
             }
             to {
-                transform: translateX(200%); 
+                transform: translateX(135%); 
             }
 }
 
@@ -51,6 +52,7 @@
     font-weight: 500;
     color: rgb(14, 13, 13);
     text-shadow: 2px 2px 5px rgba(19, 18, 18, 0.872);
+    
     
 }
 
