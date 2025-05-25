@@ -4,4 +4,5 @@
   gap: 1rem;
   padding: 1rem;
   background-color: #e3e7ed;
+  overflow-x: auto;
 }
