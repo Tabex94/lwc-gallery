@@ -71,6 +71,3 @@ export default class OpportunityBoard extends LightningElement {
 
 
 }
-
-
-
