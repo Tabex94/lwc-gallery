@@ -1,7 +1,7 @@
 import { LightningElement, track, wire } from 'lwc';
 import getMainOpportunities from '@salesforce/apex/OpportunityLWCController.getMainOpportunities';
 import updateOpportunityStage from '@salesforce/apex/OpportunityLWCController.updateOpportunityStage';
-
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class OpportunityBoard extends LightningElement {
   @track opportunities = [];
@@ -48,13 +48,13 @@ export default class OpportunityBoard extends LightningElement {
       });
 
         // Optional: show toast
-        /*this.dispatchEvent(
+        this.dispatchEvent(
           new ShowToastEvent({
             title: 'Success',
             message: 'Opportunity stage updated',
             variant: 'success'
           })
-        );*/
+        );
       })
       .catch(error => {
         console.error('Error updating stage:', error);

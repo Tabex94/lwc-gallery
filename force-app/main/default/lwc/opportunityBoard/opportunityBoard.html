@@ -1,4 +1,5 @@
 <template>
+  <div class="board-container">
   <div class="board">
     <template for:each={columns} for:item="col">
       <c-opportunity-column
@@ -8,6 +9,6 @@
         onopportunitydrop={handleOpportunityDrop}
       ></c-opportunity-column>
     </template>
-  </div>
+  </div></div>
 </template>
 
